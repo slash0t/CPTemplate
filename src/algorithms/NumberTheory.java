@@ -2,6 +2,8 @@ package algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class NumberTheory {
     public static int gcd(int p, int q) {
@@ -25,6 +27,15 @@ public class NumberTheory {
         List<Integer> numbers = new ArrayList<>();
         while (n > 1) {
             numbers.add(divArray[n]);
+            n = n / divArray[n];
+        }
+        return numbers;
+    }
+
+    public static Map<Integer, Integer> factorizePow(int n) {
+        TreeMap<Integer, Integer> numbers = new TreeMap<>();
+        while (n > 1) {
+            numbers.put(divArray[n], numbers.getOrDefault(divArray[n], 0) + 1);
             n = n / divArray[n];
         }
         return numbers;
